@@ -4,6 +4,13 @@ import Link from "gatsby-link";
 import { rhythm } from "../utils/typography";
 
 export default ({ data }) => {
+  function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images;
+  }
+  
+  const images = importAll(require.context('./', false, /\.(png|jpe?g|svg)$/));
   return (
     <div>
       <g.H1 display={"inline-block"} borderBottom={"1px solid"}>
@@ -17,7 +24,8 @@ export default ({ data }) => {
           <Link
             to={node.fields.slug}
             css={{ textDecoration: `none`, color: `inherit` }}
-          >
+          >          
+          <img src={images[node.frontmatter.image.relativePath]} />
             <g.H3 marginBottom={rhythm(1 / 4)}>
               {node.frontmatter.title}{" "}
               <g.Span color="#BBB">— {node.frontmatter.date}</g.Span>
@@ -42,6 +50,9 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
+            image{
+              relativePath
+            }
           }
           fields {
             slug

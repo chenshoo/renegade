@@ -17,6 +17,7 @@
     "gatsby-source-filesystem": "^1.5.35",
     "gatsby-transformer-remark": "^1.7.41",
     "glamorous": "^4.12.5",
+    "netlify-cli": "^1.2.2",
     "typography-theme-kirkham": "^0.16.3"
   }
 }

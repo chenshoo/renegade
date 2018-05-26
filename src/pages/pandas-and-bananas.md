@@ -1,8 +1,8 @@
 ---
-path: "/hello-world2.html"
 date: "2017-08-14T03:49:16.408Z"
 title: "Pandas and Bananas"
 tags: ["first"]
+image: "about-pic.jpg"
 ---
 
 Do Pandas eat bananas? Check out this short video that shows that yes! pandas do
